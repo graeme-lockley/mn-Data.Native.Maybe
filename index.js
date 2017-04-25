@@ -51,6 +51,16 @@ assumptionEqual(Nothing.isNothing(), true);
 assumptionEqual(Just(100).isNothing(), false);
 
 
+
+//- Applies the function `f` to the `Maybe` boxed value.
+//= Maybe a . map :: (a -> b) -> Maybe b
+MaybeState.prototype.map = function(f) {
+    return this.reduce(() => Nothing)(x => Just(f(x)));
+};
+assumptionEqual(Nothing.map(x => x * 2), Nothing);
+assumptionEqual(Just(10).map(x => x * 2), Just(20));
+
+
 module.exports = {
     Nothing,
     Just
