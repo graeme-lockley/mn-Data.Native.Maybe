@@ -61,6 +61,15 @@ assumptionEqual(Nothing.map(x => x * 2), Nothing);
 assumptionEqual(Just(10).map(x => x * 2), Just(20));
 
 
+//- Returns the boxed value if this `Maybe` was constructed with a value otherwise returns the `defaultValue`.
+//= Maybe a . withDefault :: a -> a
+MaybeState.prototype.withDefault = function(defaultValue) {
+    return this.reduce(() => defaultValue)(x => x);
+};
+assumptionEqual(Nothing.withDefault(10), 10);
+assumptionEqual(Just(100).withDefault(10), 100);
+
+
 module.exports = {
     Nothing,
     Just
