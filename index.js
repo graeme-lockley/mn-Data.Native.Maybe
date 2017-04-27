@@ -1,7 +1,7 @@
 //- Although not strictly a native this package provides a very simple implementation of a null-pointer
 //- replacement.  This package is necessary as one of the key objectives of the suite of native packages
 //- is to remove all use of null and undefined values.  In order to achieve this it is necessary to be
-//- able to sensibly accomodate these values in a consistent manner.
+//- able to sensibly accommodate these values in a consistent manner.
 
 
 function MaybeState(content) {
