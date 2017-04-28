@@ -12,16 +12,18 @@ function Maybe(content) {
 
 
 //- The nothing value which corresponds to a null, undefined value or the value is not present.
+//= Nothing :: Maybe a
 const Nothing = new Maybe([0]);
 
 
 //- A constructor which is used to box a non-null value.
+//= Just :: a -> Maybe a
 const Just = content => new Maybe([1, content]);
 
 
 //- The `Maybe` reduction function accepts a reduction function for each of the two `Maybe` values
 //- and then reduces the `Maybe` value to a single type.
-//= Maybe a =>reduce :: (() -> b) -> (a -> b) -> b
+//= Maybe a => reduce :: (() -> b) -> (a -> b) -> b
 Maybe.prototype.reduce = function(fNothing) {
     return fJust => {
         switch (this.content[0]) {
