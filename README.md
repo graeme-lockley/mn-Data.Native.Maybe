@@ -6,14 +6,32 @@ replacement.  This package is necessary as one of the key objectives of the suit
 is to remove all use of null and undefined values.  In order to achieve this it is necessary to be
 able to sensibly accommodate these values in a consistent manner.
 
-### reduce
+### Nothing
 
 ```haskell
-Maybe a =>reduce :: (() -> b) -> (a -> b) -> b
+Nothing :: Maybe a
 ```
 
 The nothing value which corresponds to a null, undefined value or the value is not present.
+
+
+
+### Just
+
+```haskell
+Just :: a -> Maybe a
+```
+
 A constructor which is used to box a non-null value.
+
+
+
+### reduce
+
+```haskell
+Maybe a => reduce :: (() -> b) -> (a -> b) -> b
+```
+
 The `Maybe` reduction function accepts a reduction function for each of the two `Maybe` values
 and then reduces the `Maybe` value to a single type.
 
